@@ -1,5 +1,5 @@
 export default {
-  header: "Contact",
+  header: "Login",
   // eslint-disable-next-line prettier/prettier
-  page: "Contact",
+  page: "Login",
 };

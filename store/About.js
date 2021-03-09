@@ -1,4 +1,5 @@
 export default {
   header: "About",
-  view: "About"
+  // eslint-disable-next-line prettier/prettier
+  page: "About",
 };

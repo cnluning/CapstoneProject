@@ -1,7 +1,6 @@
 import html from "html-literal";
 
 export default () => html`
-  <h3>About</h3>
   <h4>Who?</h4>
   <p>
     Anyone can journal to create better habits! If you have a habit you want to

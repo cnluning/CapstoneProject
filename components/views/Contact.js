@@ -1,8 +1,6 @@
 import html from "html-literal";
 
 export default () => html`
-  <h3>Contact</h3>
-
   <form action="https://formspree.io/f/mleoyenl" method="POST">
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" placeholder="Full Name" />

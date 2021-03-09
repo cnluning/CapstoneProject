@@ -1,4 +1,5 @@
 export default {
   header: "Home",
-  view: "Home"
+  // eslint-disable-next-line prettier/prettier
+  page: "Home",
 };

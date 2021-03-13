@@ -27,8 +27,18 @@ function render(st = state.Home) {
   router.updatePageLinks();
 }
 
-document
-  .querySelector(".fa-bars")
-  .addEventListener("click", () =>
-    document.querySelector("nav > ul").classList.toggle("hidden--mobile")
+function addNavEventListeners() {
+  // add event listeners to Nav items for navigation
+  document.querySelectorAll("nav a").forEach(navLink =>
+    navLink.addEventListener("click", event => {
+      event.preventDefault();
+      render(state[event.target.title]);
+    })
   );
+
+  document
+    .querySelector(".fa-bars")
+    .addEventListener("click", () =>
+      document.querySelector("nav > ul").classList.toggle("hidden--mobile")
+    );
+}

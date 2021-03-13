@@ -28,8 +28,12 @@ h4 {
 
 nav {
   color: #4A4E69;
-  text-align: right;
   padding: 20px;
+}
+
+nav,
+ul {
+  list-style-type: none;
 }
 
 .center {

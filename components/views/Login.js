@@ -2,7 +2,7 @@ import html from "html-literal";
 
 export default () => html`
   <form id="register" method="POST" action="">
-    <div>
+    <div class="login">
       <label for="email">Email:</label>
       <input
         type="email"

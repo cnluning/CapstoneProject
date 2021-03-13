@@ -1,5 +1,5 @@
 export default {
-  header: "Previous Entries",
+  header: "Create",
   // eslint-disable-next-line prettier/prettier
-  page: "Previous Entries",
+  page: "Create",
 };

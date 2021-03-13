@@ -1,5 +1,5 @@
 export default {
-  header: "User Profile",
+  header: "Profile",
   // eslint-disable-next-line prettier/prettier
-  page: "User Profile",
+  page: "Profile",
 };

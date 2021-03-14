@@ -27,15 +27,6 @@ function render(st = state.Home) {
   router.updatePageLinks();
 }
 
-function addNavEventListeners() {
-  // add event listeners to Nav items for navigation
-  document.querySelectorAll("nav a").forEach(navLink =>
-    navLink.addEventListener("click", event => {
-      event.preventDefault();
-      render(state[event.target.title]);
-    })
-  );
-
   document
     .querySelector(".fa-bars")
     .addEventListener("click", () =>

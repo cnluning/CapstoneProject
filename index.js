@@ -27,9 +27,8 @@ function render(st = state.Home) {
   router.updatePageLinks();
 }
 
-  document
-    .querySelector(".fa-bars")
-    .addEventListener("click", () =>
-      document.querySelector("nav > ul").classList.toggle("hidden--mobile")
-    );
-}
+document
+  .querySelector(".fa-bars")
+  .addEventListener("click", () =>
+    document.querySelector("nav > ul").classList.toggle("hidden--mobile")
+  );

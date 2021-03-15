@@ -4,7 +4,18 @@ import * as state from "./store";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 
+import axios from "axios";
+import "./env";
+
 const router = new Navigo("/");
+
+//https://zenquotes.io/api/random
+
+let randQuote = () => {
+  axios.get("https://zenquotes.io/api/random").then(response => {
+    Document.getElementById("rand-quote").innerHtml = response.q;
+  });
+};
 
 router
   .on({
@@ -13,7 +24,10 @@ router
       let page = capitalize(params.data.page);
       render(state[page]);
       // eslint-disable-next-line prettier/prettier
-    },
+      if (page == "Profile") {
+        randQuote();
+      }
+    }
   })
   .resolve();
 

@@ -1,5 +1,6 @@
 import html from "html-literal";
 
 export default () => html`
-  <h4>Profile Home</h4>
+  <h4>Welcome back!</h4>
+  <p id="rand-quote"></p>
 `;

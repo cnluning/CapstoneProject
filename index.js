@@ -12,10 +12,18 @@ const router = new Navigo("/");
 //https://zenquotes.io/api/random
 
 let randQuote = () => {
+  const config = {
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    }
+  };
   axios
-    .get("https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/random")
+    .get(
+      "https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/random",
+      config
+    )
     .then(response => {
-      Document.getElementById("rand-quote").innerHtml = response.q;
+      document.getElementById("rand-quote").innerHtml = response.q;
     });
 };
 

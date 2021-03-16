@@ -12,9 +12,11 @@ const router = new Navigo("/");
 //https://zenquotes.io/api/random
 
 let randQuote = () => {
-  axios.get("https://zenquotes.io/api/random").then(response => {
-    Document.getElementById("rand-quote").innerHtml = response.q;
-  });
+  axios
+    .get("https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/random")
+    .then(response => {
+      Document.getElementById("rand-quote").innerHtml = response.q;
+    });
 };
 
 router

@@ -6,6 +6,7 @@ import { capitalize } from "lodash";
 
 import axios from "axios";
 import "./env";
+//import { Login } from "./components/views";
 
 const router = new Navigo("/");
 
@@ -56,3 +57,17 @@ document
   .addEventListener("click", () =>
     document.querySelector("nav > ul").classList.toggle("hidden--mobile")
   );
+
+//let userName = "";
+//let loggedIn = false;
+
+//let logIn = user => {
+//  userName = user;
+//  loggedIn = true;
+//};
+
+// document
+//   .querySelector(".submitButton")
+//   .addEventListener("click", () =>
+//     document.querySelector("a").classList.toggle("submit")
+//   );

@@ -15,6 +15,6 @@ export default () => html`
       <label for="password">Password:</label>
       <input type="password" name="password" id="password" />
     </div>
-    <input type="submit" name="login" value="Login" />
+    <input class="submitButton" type="submit" name="login" value="Login" />
   </form>
 `;

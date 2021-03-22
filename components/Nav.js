@@ -13,3 +13,13 @@ export default st => `
     </ul>
   </nav>
   `;
+
+// export => `
+// <nav>
+//   <i class="fas fa-bars"</i>
+//   <ul>
+//     <li>
+//       <a href="/Profile" class="gai" data-navigo>Profile</a>
+//     </li>
+//   </ul>
+// `

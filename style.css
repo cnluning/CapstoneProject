@@ -14,11 +14,11 @@ html {
 }
 
 header {
-  /* background-image: url(documents/zenstones.jpg);
-  background-size: cover; */
   padding-left: 20px;
   padding-top: 10px;
   text-shadow: 2px 2px black;
+  background-image: url(https://i.imgur.com/zwtpOfg.jpg);
+  background-size: cover;
 }
 
 h1 {
@@ -45,6 +45,8 @@ h4 {
 }
 
 nav {
+  display: flex;
+  justify-content: flex-end;
   color: #4A4E69;
   padding: 20px;
 }

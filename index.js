@@ -28,6 +28,17 @@ let randQuote = () => {
     });
 };
 
+// router.hooks({
+//   before: (done, params) => {
+//     const page =
+//       params && Object.prototype.hasOwnProperty.call(params, "page")
+//         ? capitalize(params.page)
+//         : "Profile";
+//     fetchDataByView(state[page]);
+//     done();
+//   }
+// });
+
 router
   .on({
     "/": () => render(state.Home),

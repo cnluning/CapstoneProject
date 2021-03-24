@@ -6,6 +6,7 @@ export default () => html`
       <label for="msg">Today's Entry: </label>
       <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
     </div>
+
     <input type="submit" value="Submit" class="submit" />
   </form>
 `;

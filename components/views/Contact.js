@@ -30,7 +30,6 @@ export default () => html`
         <option value="other">Other</option>
       </select>
     </div>
-
     <input type="submit" value="Submit" />
   </form>
 `;

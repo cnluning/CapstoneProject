@@ -61,13 +61,32 @@ function render(st = state.Home) {
     ${Footer()}
   `;
   router.updatePageLinks();
+  addNavEventListeners();
 }
 
-document
-  .querySelector(".fa-bars")
-  .addEventListener("click", () =>
-    document.querySelector("nav > ul").classList.toggle("hidden--mobile")
+function addNavEventListeners() {
+  document.querySelectorAll("nav a").forEach(navLink =>
+    navLink.addEventListener("click", event => {
+      event.preventDefault();
+      console.log(event.target.title);
+      console.log(event);
+      console.log(event.target);
+      render(state[event.target.title]);
+    })
   );
+
+  document
+    .querySelector(".fa-bars")
+    .addEventListener("click", () =>
+      document.querySelector("nav > ul").classList.toggle("hidden--mobile")
+    );
+}
+
+// document
+//   .querySelector(".fa-bars")
+//   .addEventListener("click", () =>
+//     document.querySelector("nav > ul").classList.toggle("hidden--mobile")
+//   );
 
 //let userName = "";
 //let loggedIn = false;

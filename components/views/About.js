@@ -1,6 +1,10 @@
 import html from "html-literal";
 
 export default () => html`
+  <!-- <div id="#root">
+    <div class="headerGrid">
+      <div class="navBar">
+        <div class="mainBody"> -->
   <h4>Who?</h4>
   <p>
     Anyone can journal to create better habits! If you have a habit you want to
@@ -25,5 +29,11 @@ export default () => html`
     create new habits and to improve existing habits.
   </p>
   <h4>How?</h4>
-  <p>Just log into your account! Go to the "Sign In" page to get started!</p>
+  <p>
+    Just log into your account! Go to the "Sign In" page to get started!
+  </p>
+  <!-- </div>
+      </div>
+    </div>
+  </div> -->
 `;

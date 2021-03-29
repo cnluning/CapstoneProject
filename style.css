@@ -5,8 +5,26 @@
 }
 
 html {
-  background-color: #9A8C98;
+  background-color: #9a8c9894;
   font-family: 'Lexend Zetta', sans-serif;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr 0.8fr;
+  grid-template-rows: 0.7fr 1.3fr 1fr;
+  gap: 0px 0px;
+}
+.headerGrid {
+  grid-area: 1 / 1 / 2 / 5;
+}
+
+.navBar {
+  grid-area: 2 / 4 / 4 / 5;
+}
+
+.mainBody {
+  grid-area: 2 / 1 / 4 / 4;
 }
 
 header {
@@ -39,6 +57,14 @@ h4 {
   color:#4a4e69;
   text-align: center;
   text-shadow: 2px 2px grey;
+}
+
+a {
+  color:#4a4e69;;
+}
+
+a:visited {
+  color: #22223B;
 }
 
 nav {

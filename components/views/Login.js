@@ -1,6 +1,10 @@
 import html from "html-literal";
 
 export default () => html`
+  <!-- <div id="#root">
+    <div class="headerGrid">
+      <div class="navBar">
+        <div class="mainBody"> -->
   <form id="register" method="POST" action="">
     <div class="login">
       <label for="email">Email:</label>
@@ -17,4 +21,8 @@ export default () => html`
     </div>
     <input class="loginButton" type="submit" name="login" value="Login" />
   </form>
+  <!-- </div>
+      </div>
+    </div>
+  </div> -->
 `;

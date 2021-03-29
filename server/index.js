@@ -1,5 +1,7 @@
+const { request } = require("express");
 const express = require("express");
 const mongoose = require("mongoose");
+const entries = require("./routers/entries");
 
 const app = express();
 
@@ -18,58 +20,6 @@ let db_status = "MongoDB connection not successful.";
 
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => (db_status = "Successfully opened connection to Mongo!"));
-
-const entrySchema = new mongoose.Schema({
-  day: Number,
-  text: String
-});
-
-const Entry = mongoose.model("Entry", entrySchema);
-
-app.post("/entries", (request, response) => {
-  const newEntry = new Entry(request.body);
-  newEntry.save((err, entry) => {
-    return err ? response.sendStatus(500).json(err) : response.json(entry);
-  });
-});
-
-app.get("/entries", (request, response) => {
-  Entry.find({}, (error, data) => {
-    if (error) return response.sendStatus(500).json(error);
-    return response.json(data);
-  });
-});
-
-app.get("/entries/:id", (request, response) => {
-  Entry.findById(request.params.id, (error, data) => {
-    if (error) return response.sendStatus(500).json(error);
-    return response.json(data);
-  });
-});
-
-app.delete("/entries/:id", (request, response) => {
-  Entry.findByIdAndRemove(request.params.id, {}, (error, data) => {
-    if (error) return response.sendStatus(500).json(error);
-    return response.json(data);
-  });
-});
-
-app.put("/entries/:id", (request, response) => {
-  const body = request.body;
-  Entry.findByIdAndUpdate(
-    request.params.id,
-    {
-      $set: {
-        day: body.day,
-        text: body.text
-      }
-    },
-    (error, data) => {
-      if (error) return response.sendStatus(500).json(error);
-      return response.json(request.body);
-    }
-  );
-});
 
 app.route("/").get((request, response) => {
   response.send("HELLO WORLD");

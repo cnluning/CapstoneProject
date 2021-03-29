@@ -27,16 +27,16 @@ let randQuote = () => {
     });
 };
 
-router.hooks({
-  before: (done, params) => {
-    const page =
-      params && Object.prototype.hasOwnProperty.call(params, "page")
-        ? capitalize(params.page)
-        : "Home";
-    fetchDataByView(state[page]);
-    done();
-  }
-});
+// router.hooks({
+//   before: (done, params) => {
+//     const page =
+//       params && Object.prototype.hasOwnProperty.call(params, "page")
+//         ? capitalize(params.page)
+//         : "Home";
+//     fetchDataByView(state[page]);
+//     done();
+//   }
+// });
 
 router
   .on({
@@ -61,7 +61,7 @@ function render(st = state.Home) {
   `;
   router.updatePageLinks();
   addNavEventListeners();
-  addEntryOnFormSubmit();
+  // addEntryOnFormSubmit();
 }
 
 function addNavEventListeners() {
@@ -82,49 +82,49 @@ function addNavEventListeners() {
     );
 }
 
-function addEntryOnFormSubmit(st) {
-  if (st.page === "Create") {
-    document.querySelector("form").addEventListener("submit", event => {
-      event.preventDefault();
-      console.log(event);
-      const inputList = event.target.elements;
-      const toppings = [];
-      for (let input of inputList.toppings) {
-        if (input.checked) {
-          toppings.push(input.value);
-        }
-      }
-      const requestData = {
-        crust: inputList.crust.value,
-        cheese: inputList.cheese.value,
-        sauce: inputList.sauce.value,
-        toppings: toppings
-      };
-      axios
-        .post(`http://localhost:4040/entries`, requestData)
-        .then(response => {
-          state.Entry.entries.push(response.data);
-          router.navigate("/Entry");
-        })
-        .catch(error => {
-          console.log("Lol whoops", error);
-        });
-    });
-  }
-}
+// function addEntryOnFormSubmit(st) {
+//   if (st.page === "Create") {
+//     document.querySelector("form").addEventListener("submit", event => {
+//       event.preventDefault();
+//       console.log(event);
+//       const inputList = event.target.elements;
+//       const toppings = [];
+//       for (let input of inputList.toppings) {
+//         if (input.checked) {
+//           toppings.push(input.value);
+//         }
+//       }
+//       const requestData = {
+//         crust: inputList.crust.value,
+//         cheese: inputList.cheese.value,
+//         sauce: inputList.sauce.value,
+//         toppings: toppings
+//       };
+//       axios
+//         .post(`http://localhost:4040/entries`, requestData)
+//         .then(response => {
+//           state.Entry.entries.push(response.data);
+//           router.navigate("/Entry");
+//         })
+//         .catch(error => {
+//           console.log("Lol whoops", error);
+//         });
+//     });
+//   }
+// }
 
-function fetchDataByView(st = state.Home) {
-  switch (st.page) {
-    case "Previous":
-      axios
-        .get(`http://localhost:4040/entries`)
-        .then(response => {
-          state[st.page].pizzas = response.data;
-          render(st);
-        })
-        .catch(error => {
-          console.log("Lol whoops", error);
-        });
-      break;
-  }
-}
+// function fetchDataByView(st = state.Home) {
+//   switch (st.page) {
+//     case "Previous":
+//       axios
+//         .get(`http://localhost:4040/entries`)
+//         .then(response => {
+//           state[st.page].pizzas = response.data;
+//           render(st);
+//         })
+//         .catch(error => {
+//           console.log("Lol whoops", error);
+//         });
+//       break;
+//   }
+// }

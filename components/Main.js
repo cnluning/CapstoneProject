@@ -4,7 +4,5 @@ import * as views from "./views";
 
 // eslint-disable-next-line prettier/prettier
 export default (st) => html `
-  <div class="mainBody">
-    ${views[st.page](st)}
-  </div>
+  ${views[st.page](st)}
 `;

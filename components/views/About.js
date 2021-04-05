@@ -1,7 +1,7 @@
 import html from "html-literal";
 
 export default () => html`
-  <!-- <div id="#root">
+  <!-- <div id="grid-container">
     <div class="headerGrid">
       <div class="navBar">
         <div class="mainBody"> -->

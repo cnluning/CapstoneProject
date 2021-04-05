@@ -47,10 +47,8 @@ app.get("/status", (request, response) => {
 app
   .route("/posts")
   .get((request, response) => {
-    // express adds a "params" Object to requests
     const id = request.params.id;
     let data = "The ID equals " + id;
-    // handle GET request for post with an id of "id"
     if (request.query) {
       if (request.query.type) {
         if (request.query.type === "json") {

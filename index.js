@@ -27,16 +27,16 @@ let randQuote = () => {
     });
 };
 
-// router.hooks({
-//   before: (done, params) => {
-//     const page =
-//       params && Object.prototype.hasOwnProperty.call(params, "page")
-//         ? capitalize(params.page)
-//         : "Home";
-//     fetchDataByView(state[page]);
-//     done();
-//   }
-// });
+router.hooks({
+  before: (done, params) => {
+    const page =
+      params && Object.prototype.hasOwnProperty.call(params, "page")
+        ? capitalize(params.page)
+        : "Home";
+    fetchDataByView(state[page]);
+    done();
+  }
+});
 
 router
   .on({
@@ -113,18 +113,18 @@ function addNavEventListeners() {
 //   }
 // }
 
-// function fetchDataByView(st = state.Home) {
-//   switch (st.page) {
-//     case "Previous":
-//       axios
-//         .get(`http://localhost:4040/entries`)
-//         .then(response => {
-//           state[st.page].pizzas = response.data;
-//           render(st);
-//         })
-//         .catch(error => {
-//           console.log("Lol whoops", error);
-//         });
-//       break;
-//   }
-// }
+function fetchDataByView(st = state.Home) {
+  switch (st.page) {
+    case "Previous":
+      axios
+        .get(`http://localhost:4040/entries`)
+        .then(response => {
+          state[st.page].entries = response.data;
+          render(st);
+        })
+        .catch(error => {
+          console.log("Lol whoops", error);
+        });
+      break;
+  }
+}

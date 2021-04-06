@@ -1,26 +1,12 @@
 import html from "html-literal";
 
-export default () => html`
-  <!-- <div id="#root">
-    <div class="headerGrid">
-      <div class="navBar">
-        <div class="mainBody"> -->
+export default st => html`
   <h4>Previous Entries</h4>
-  <!-- </div>
-      </div>
-    </div>
-  </div> -->
+  <p>
+    ${st.entries
+      .map(entry => {
+        return `${entry.text} ${entry.timestamps}`;
+      })
+      .join("")}
+  </p>
 `;
-{
-  /* <table id="pizzas">
-<tr><th>Crust</th><th>Cheese</th><th>Sauce</th><th>Toppings</th></tr>
-${st.pizzas
-  .map((pizza) => {
-    return `<tr><td>${pizza.crust}</td><td>${pizza.cheese}</td><td>${
-      pizza.sauce
-    }</td><td>${pizza.toppings.join(" & ")}</td></tr>`;
-  })
-  .join("")}
-</table>
-`; */
-}

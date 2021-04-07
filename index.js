@@ -1,11 +1,16 @@
 import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
+
 import Navigo from "navigo";
 import { capitalize } from "lodash";
+
 import axios from "axios";
 import "./env";
+
 const router = new Navigo("/");
+
 //https://zenquotes.io/api/random
+
 let randQuote = () => {
   const config = {
     headers: {
@@ -21,6 +26,7 @@ let randQuote = () => {
       document.getElementById("rand-quote").innerHtml = response.q;
     });
 };
+
 router.hooks({
   before: (done, params) => {
     const page =
@@ -30,6 +36,7 @@ router.hooks({
     done();
   }
 });
+
 router
   .on({
     "/": () => render(state.Home),
@@ -43,6 +50,7 @@ router
     }
   })
   .resolve();
+
 function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
     ${Header(st)}
@@ -55,6 +63,7 @@ function render(st = state.Home) {
   addEntryOnFormSubmit(st);
   fetchEntries(st);
 }
+
 function addNavEventListeners() {
   document.querySelectorAll("nav a").forEach(navLink =>
     navLink.addEventListener("click", event => {
@@ -65,12 +74,14 @@ function addNavEventListeners() {
       render(state[event.target.title]);
     })
   );
+
   document
     .querySelector(".fa-bars")
     .addEventListener("click", () =>
       document.querySelector("nav > ul").classList.toggle("hidden--mobile")
     );
 }
+
 function addEntryOnFormSubmit(st) {
   if (st.page === "Create") {
     document.querySelector("#enter").addEventListener("submit", event => {
@@ -92,6 +103,7 @@ function addEntryOnFormSubmit(st) {
     });
   }
 }
+
 function fetchEntries(st) {
   const prevState = state.Previous.entries.length;
   axios

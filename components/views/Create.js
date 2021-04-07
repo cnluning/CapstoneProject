@@ -5,7 +5,7 @@ export default () => html`
     <div class="headerGrid">
       <div class="navBar">
         <div class="mainBody"> -->
-  <form id="enter" method="POST" action="">
+  <form id="enter">
     <div>
       <label for="msg">Today's Entry: </label>
       <textarea name="msg" id="msg" cols="30" rows="10"></textarea>

@@ -1,16 +1,11 @@
 import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
-
 import Navigo from "navigo";
 import { capitalize } from "lodash";
-
 import axios from "axios";
 import "./env";
-
 const router = new Navigo("/");
-
 //https://zenquotes.io/api/random
-
 let randQuote = () => {
   const config = {
     headers: {
@@ -26,18 +21,15 @@ let randQuote = () => {
       document.getElementById("rand-quote").innerHtml = response.q;
     });
 };
-
 router.hooks({
   before: (done, params) => {
     const page =
       params && Object.prototype.hasOwnProperty.call(params, "page")
         ? capitalize(params.page)
         : "Home";
-    fetchDataByView(state[page]);
     done();
   }
 });
-
 router
   .on({
     "/": () => render(state.Home),
@@ -51,7 +43,6 @@ router
     }
   })
   .resolve();
-
 function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
     ${Header(st)}
@@ -61,10 +52,9 @@ function render(st = state.Home) {
   `;
   router.updatePageLinks();
   addNavEventListeners();
-  addEntryOnFormSubmit();
-  fetchDataByView();
+  addEntryOnFormSubmit(st);
+  fetchEntries(st);
 }
-
 function addNavEventListeners() {
   document.querySelectorAll("nav a").forEach(navLink =>
     navLink.addEventListener("click", event => {
@@ -75,27 +65,25 @@ function addNavEventListeners() {
       render(state[event.target.title]);
     })
   );
-
   document
     .querySelector(".fa-bars")
     .addEventListener("click", () =>
       document.querySelector("nav > ul").classList.toggle("hidden--mobile")
     );
 }
-
 function addEntryOnFormSubmit(st) {
   if (st.page === "Create") {
-    document.querySelector("form").addEventListener("submit", event => {
+    document.querySelector("#enter").addEventListener("submit", event => {
       event.preventDefault();
-      console.log(event);
       const requestData = {
-        text: event.target.value,
-        timestamps: true
+        text: document.querySelector("#msg").value,
+        timestamps: Date.now()
       };
       axios
         .post(`http://localhost:4040/entries`, requestData)
         .then(response => {
-          state.Entry.entries.push(response.data);
+          console.log(response.data);
+          state.Previous.entries.push(response.data);
           router.navigate("/Entry");
         })
         .catch(error => {
@@ -104,22 +92,19 @@ function addEntryOnFormSubmit(st) {
     });
   }
 }
-
-function fetchDataByView(st = state.Home) {
-  switch (st.page) {
-    case "Previous":
-      axios
-        .get(`http://localhost:4040/entries`)
-        .then(response => {
-          state[st.page].entries = response.data;
-          render(st);
-        })
-        .catch(error => {
-          console.log("Lol whoops", error);
-        });
-      break;
-  }
+function fetchEntries(st) {
+  const prevState = state.Previous.entries.length;
+  axios
+    .get(`http://localhost:4040/entries`)
+    .then(response => {
+      state.Previous.entries = response.data;
+      if (prevState !== response.data.length) {
+        render(st);
+      }
+    })
+    .catch(error => {
+      console.log("Lol whoops", error);
+    });
 }
-
 // axios.get("http://localhost:4040/entries");
 // console.log(axios);

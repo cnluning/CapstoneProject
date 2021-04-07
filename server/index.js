@@ -28,7 +28,9 @@ app.use(logging);
 app.use(cors);
 app.use("/entries", entries);
 
-mongoose.connect("mongodb://localhost/test");
+mongoose.connect(
+  "mongodb+srv://claire-sc-student:CapstoneJan2021@cluster0.zbilx.mongodb.net/CapstoneDB?retryWrites=true&w=majority"
+);
 const db = mongoose.connection;
 
 let db_status = "MongoDB connection not successful.";

@@ -16,4 +16,11 @@ router.get("/", (request, response) => {
   });
 });
 
+router.delete("/:id", (request, response) => {
+  Entry.model.findByIdAndRemove(request.params.id, {}, (error, data) => {
+    if (error) return response.sendStatus(500).json(error);
+    return response.json(data);
+  });
+});
+
 module.exports = router;

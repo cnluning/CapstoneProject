@@ -91,7 +91,7 @@ function addEntryOnFormSubmit(st) {
         timestamps: Date.now()
       };
       axios
-        .post(`http://localhost:4040/entries`, requestData)
+        .post(`https://claire-sc-capstone.herokuapp.com/entries`, requestData)
         .then(response => {
           console.log(response.data);
           state.Previous.entries.push(response.data);
@@ -107,7 +107,7 @@ function addEntryOnFormSubmit(st) {
 function fetchEntries(st) {
   const prevState = state.Previous.entries.length;
   axios
-    .get(`http://localhost:4040/entries`)
+    .get(`https://claire-sc-capstone.herokuapp.com/entries`)
     .then(response => {
       state.Previous.entries = response.data;
       if (prevState !== response.data.length) {

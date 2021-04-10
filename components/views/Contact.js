@@ -1,10 +1,6 @@
 import html from "html-literal";
 
 export default () => html`
-  <!-- <div id="#root">
-    <div class="headerGrid">
-      <div class="navBar">
-        <div class="mainBody"> -->
   <form action="https://formspree.io/f/mleoyenl" method="POST">
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" placeholder="Full Name" />
@@ -36,8 +32,4 @@ export default () => html`
     </div>
     <input type="submit" value="Submit" />
   </form>
-  <!-- </div>
-      </div>
-    </div>
-  </div> -->
 `;

@@ -68,9 +68,6 @@ function addNavEventListeners() {
   document.querySelectorAll("nav a").forEach(navLink =>
     navLink.addEventListener("click", event => {
       event.preventDefault();
-      console.log(event.target.title);
-      console.log(event);
-      console.log(event.target);
       render(state[event.target.title]);
     })
   );
@@ -118,5 +115,3 @@ function fetchEntries(st) {
       console.log("Lol whoops", error);
     });
 }
-// axios.get("http://localhost:4040/entries");
-// console.log(axios);

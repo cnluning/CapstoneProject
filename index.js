@@ -24,6 +24,7 @@ let randQuote = () => {
     )
     .then(response => {
       document.getElementById("rand-quote").innerHtml = response.q;
+      // state.profile.quote = response.q;
     });
 };
 
@@ -68,9 +69,6 @@ function addNavEventListeners() {
   document.querySelectorAll("nav a").forEach(navLink =>
     navLink.addEventListener("click", event => {
       event.preventDefault();
-      console.log(event.target.title);
-      console.log(event);
-      console.log(event.target);
       render(state[event.target.title]);
     })
   );

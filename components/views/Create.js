@@ -1,10 +1,6 @@
 import html from "html-literal";
 
 export default () => html`
-  <!-- <div id="#root">
-    <div class="headerGrid">
-      <div class="navBar">
-        <div class="mainBody"> -->
   <form id="enter">
     <div>
       <label for="msg">Today's Entry: </label>
@@ -12,9 +8,4 @@ export default () => html`
       <input type="submit" value="Submit" class="submit" />
     </div>
   </form>
-
-  <!-- </div>
-      </div>
-    </div>
-  </div> -->
 `;

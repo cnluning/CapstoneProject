@@ -60,7 +60,8 @@ h4 {
 }
 
 a {
-  color:#4a4e69;;
+  color:#4a4e69;
+  font-weight: bolder;
 }
 
 a:visited {

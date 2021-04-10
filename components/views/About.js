@@ -1,10 +1,6 @@
 import html from "html-literal";
 
 export default () => html`
-  <!-- <div id="grid-container">
-    <div class="headerGrid">
-      <div class="navBar">
-        <div class="mainBody"> -->
   <h4>Who?</h4>
   <p>
     Anyone can journal to create better habits! If you have a habit you want to
@@ -32,8 +28,4 @@ export default () => html`
   <p>
     Just log into your account! Go to the "Sign In" page to get started!
   </p>
-  <!-- </div>
-      </div>
-    </div>
-  </div> -->
 `;

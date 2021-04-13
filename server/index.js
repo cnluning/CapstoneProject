@@ -29,7 +29,7 @@ app.use(cors);
 app.use("/entries", entries);
 
 mongoose.connect(
-  "mongodb+srv://claire-sc-student:CapstoneJan2021@cluster0.zbilx.mongodb.net/CapstoneDB?retryWrites=true&w=majority"
+  "mongodb+srv://demoDay:Savvy2021@cluster0.neazv.mongodb.net/demoDayApril?retryWrites=true&w=majority"
 );
 const db = mongoose.connection;
 

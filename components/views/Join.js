@@ -1,7 +1,6 @@
 import html from "html-literal";
 
 export default () => html`
-  <h4>Join 30 Days</h4>
   <form id="register" method="POST" action="">
     <div>
       <label for="name">Name:</label>

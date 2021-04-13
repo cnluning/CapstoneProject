@@ -3,6 +3,7 @@ export default [
   { title: "About", text: "About" },
   { title: "Contact", text: "Contact" },
   // eslint-disable-next-line prettier/prettier
+  { title: "Join", text: "Join" },
   { title: "Login", text: "Login" },
   { title: "Profile", text: "Profile" },
   { title: "Create", text: "Create" },

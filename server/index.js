@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const entries = require("./routers/entries");
+const user = require("./routers/user");
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(express.json());
 app.use(logging);
 app.use(cors);
 app.use("/entries", entries);
+app.use("/user", user);
 
 mongoose.connect(
   "mongodb+srv://demoDay:Savvy2021@cluster0.neazv.mongodb.net/demoDayApril?retryWrites=true&w=majority"

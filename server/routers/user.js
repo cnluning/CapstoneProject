@@ -3,8 +3,9 @@ const router = express.Router();
 const User = require("../models/user");
 
 router.get("/", (request, response) => {
-  User.find({}).then(stuff => {
-    response.status(200).send(stuff);
+  User.find({}, (error, data) => {
+    if (error) return response.sendStatus(500).json(error);
+    return response.json(data);
   });
 });
 
